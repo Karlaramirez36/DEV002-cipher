@@ -2,13 +2,63 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Caesar Cipher</title>
+    <title>Traductor mensajeria secreta</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="root">
-      <h1>Hello world!</h1>
-    </div>
+    
+  <div class="cover">
+  
+    <div class="encabezado">
+      
+      <div>
+        <h1>TRADUCTOR DE MENSAJERIA SECRETA PARA PERIODISTAS</h1>
+      </div>
+          </div>
+          <hr/>
+          <br/>
+          <br/>
+          <br/>
+<div class="content">
+
+<p>Con este traductor de mensajería secreta, tus noticias y primicias estaran siempre seguras.</p>
+<p>Sólo debes escribir el mensaje, la clave de tu equipo de trabajo y selecionar la acción que quieras realizar.</p>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class= "cifrado">
+<h3>MENSAJE</h3>
+  <p><textarea id="texto1" rows="5" cols="50"></textarea></p>
+<br/>
+
+<div> 
+ <h3>CLAVE</h3>
+  <input type="number" id="desplazamiento" min="1" max="100" step="1" />
+</div>
+
+
+<div>
+  <button id= "botonCodificar" class= "button1">CODIFICAR</button>
+  <button id= "botonDecodificar" class= "button2">DECODIFICAR</button>
+</div> 
+<br/>
+
+<div> 
+  <h3>TRADUCCION</h3>
+  <textarea id= "texto2"  rows="5" cols="50"></textarea>
+</div> 
+
+<br/>
+<button id= "boton3">ESCRIBIR NUEVO MENSAJE</button>
+</div>
+</div>
+</div>
+</body>
+
     <script src="index.js" type="module"></script>
-  </body>
+  
 </html>
