@@ -1,9 +1,9 @@
 const cipher = {
   
   encode: function (desplazamiento, mensaje){
-    let textoascii=[];
-      let codetextoascii=[];
-      let codetexto=[];
+    let textoAscii=[];
+      let codeTextoAscii=[];
+      let codeTexto=[];
 
 //excepciones para el manejo de errores
     if ( desplazamiento === undefined || mensaje === undefined){
@@ -14,31 +14,31 @@ const cipher = {
  throw new TypeError ("vacio")
 else{
       
-      for(let i=0; i<mensaje.length; i++)//ciclo for, inizializa con variable i=o y si i es menor al largo del mensaje incrementara en 1
-      {let x= mensaje.charCodeAt(i); //sacando código AsCII
-        textoascii.push(x); //guardando en variable textoascii mi resultado de variable x
+      for(let i=0; i<mensaje.length; i++)//ciclo for,inicializa con variable i=o/condición comprueba si i es menor al largo del mensaje /incrementara en 1 después de cada pase del bucle
+      {let mensajeAscci= mensaje.charCodeAt(i); //obtener codigo ascci de las letras que se nos brindan, en este caso del mensaje escrito/ Array textoAscii []
+        textoAscii.push(mensajeAscci); //con push añado valores a  mi array textoAscii /mensaje en texto ascii
         
-        if(textoascii[i]===32){
+        if(textoAscii[i]===32){
           let uno = 32;
-          codetextoascii.push(uno);
+          codeTextoAscii.push(uno); //con push añado valores al final de mi array codetextoascii
         } else {
-          let uno = ((textoascii[i]-65 + desplazamiento) %26) + 65; //aplicando formula x-65+n(desplazamiento) residuo de %26+65
-          codetextoascii.push(uno);
+          let uno = ((textoAscii[i]-65 + desplazamiento) %26) + 65; //convertir codigo ascii (numeros) a la posición del alfabeto que nosotros entendemos/aplicar formula y luego con esa nueva posicion q esta en el alfabeto q nosotros conocemos pasarlo a ascii
+          codeTextoAscii.push(uno); //nueva posicion del alfabeto que nosotros entendemos (en numero)
 
         }
-        let y = String.fromCharCode(codetextoascii[i]);
-        codetexto.push(y);
+        let codigoAsciiEnLetra = String.fromCharCode(codeTextoAscii[i]); //convertir (numero) codigo ascci a una letra/pasar otra vez a codigo ascci para que la computadora nos muestre esa letra
+        codeTexto.push(codigoAsciiEnLetra);//con push añado a mi array codetexto el resultado o valor de mi variable y
       }
     }
-    console.log(codetexto)
+    console.log(codeTexto)
     
-    return codetexto.join('');
+    return codeTexto.join('');
     },
 
     decode: function (desplazamiento, mensaje){
-      let textoascii=[];
-        let decodetextoascii=[];
-        let decodetexto=[];
+      let textoAscii=[];
+        let decodeTextoAscii=[];
+        let decodeTexto=[];
 
   //excepciones para el manejo de errores
       if (desplazamiento === undefined || mensaje === undefined){
@@ -50,24 +50,24 @@ else{
   else{
         
         for(let i=0; i<mensaje.length; i++)
-        {let x= mensaje.charCodeAt(i);
-          textoascii.push(x);
+        {let mensajeAscii= mensaje.charCodeAt(i);
+          textoAscii.push(mensajeAscii);
           
-          if(textoascii[i]===32){
+          if(textoAscii[i]===32){
             let uno = 32;
-            decodetextoascii.push(uno);
+            decodeTextoAscii.push(uno);
           } else {
-            let uno = ((textoascii[i]+65 - desplazamiento) %26) + 65;
-            decodetextoascii.push(uno);
+            let uno = ((textoAscii[i]+65 - desplazamiento) %26) + 65;
+            decodeTextoAscii.push(uno);
   
           }
-          let y = String.fromCharCode(decodetextoascii[i]);
-          decodetexto.push(y);
+          let codigoAsciiEnLetra = String.fromCharCode(decodeTextoAscii[i]);
+          decodeTexto.push(codigoAsciiEnLetra);
         }
       }
-      console.log(decodetexto)
+      console.log(decodeTexto)
       
-      return decodetexto.join('');
+      return decodeTexto.join('');
       },
 
 };
